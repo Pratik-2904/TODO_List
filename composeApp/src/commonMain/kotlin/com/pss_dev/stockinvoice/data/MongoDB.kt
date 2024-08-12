@@ -11,13 +11,14 @@ import kotlinx.coroutines.flow.map
 
 class MongoDB {
     private var realm: Realm? = null
-        init {
-            try {
-                configureTheRealm()
-            } catch (e: Exception) {
-                println("Error during MongoDB initialization: ${e.message}")
-            }
+
+    init {
+        try {
+            configureTheRealm()
+        } catch (e: Exception) {
+            println("Error during MongoDB initialization: ${e.message}")
         }
+    }
 
     private fun configureTheRealm() {
         if (realm == null || realm!!.isClosed()) {
