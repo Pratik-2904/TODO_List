@@ -11,10 +11,6 @@ import kotlinx.coroutines.flow.map
 
 class MongoDB {
     private var realm: Realm? = null
-
-    class MongoDB {
-        private var realm: Realm? = null
-
         init {
             try {
                 configureTheRealm()
@@ -22,21 +18,6 @@ class MongoDB {
                 println("Error during MongoDB initialization: ${e.message}")
             }
         }
-
-        private fun configureTheRealm() {
-            if (realm == null || realm!!.isClosed()) {
-                val config = RealmConfiguration.Builder(
-                    schema = setOf(ToDoTask::class)
-                )
-                    .compactOnLaunch()
-                    .build()
-                realm = Realm.open(config)
-            }
-        }
-
-        // Other functions...
-    }
-
 
     private fun configureTheRealm() {
         if (realm == null || realm!!.isClosed()) {
